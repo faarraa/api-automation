@@ -3,12 +3,9 @@ describe("Fitur Reqres", function () {
   it("Get Reqres", async function () {
     const response = await fetch("https://reqres.in/api/users?page=2");
     const data = await response.json();
-    // console.log(data);
     // assert status respon
     assert.strictEqual(response.status, 200, "Status respon bukan 200");
-    // assert untuk memastikan respon tidak kosong
-    assert.ok(data, "Respon tidak berisi teks apapun atau kosong");
-    // assert untuk memastikan respon berisi teks json valid
+    assert.ok(data, "Respon tidak berisi teks");
     assert.ok(data.data, "Respon tidak berisi properti 'data'");
   });
 
@@ -21,7 +18,7 @@ describe("Fitur Reqres", function () {
       },
       body: JSON.stringify({
         "name": "fara",
-        "job": "Freelance paraphrasing & Dokumen editing",
+        "job": "Finance,
       }),
     });
 
@@ -71,6 +68,6 @@ describe("Fitur Reqres", function () {
     // assert status respons
     assert.strictEqual(response.status, 204, "Status respon bukan 204");
     // assert untuk memastikan body respon kosong
-    assert.strictEqual(responseText, "", "Respon tidak kosong, seharusnya kosong");
+    assert.strictEqual(responseText, "", "Respon tidak kosong");
   });
 });
